@@ -28,16 +28,17 @@
                     <span class="opacity-70">{{ $note->updated_at->diffForHumans() }}</span>
                 </div>
             @empty
-            @if (request()->routeIs('notes.index'))    
-                <p class="bg-white font-bold p-6 my-6 text-xl text-center rounded">
-                    No Notes added yet..!
-                </p>
-            @else
-                <p class="bg-white font-bold p-6 my-6 text-xl text-center rounded">
-                    Nothing in Trash
-                </p>
-            @endif
+                @if (request()->routeIs('notes.index'))    
+                    <p class="bg-white font-bold p-6 my-6 text-xl text-center rounded">
+                        No Notes added yet..!
+                    </p>
+                @else
+                    <p class="bg-white font-bold p-6 my-6 text-xl text-center rounded">
+                        Nothing in Trash
+                    </p>
+                @endif
             @endforelse
+            {{ $notes->links() }}
         </div>
     </div>
 </x-app-layout>
